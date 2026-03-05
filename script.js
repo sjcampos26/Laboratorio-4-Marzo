@@ -52,6 +52,14 @@ class Biblioteca {
             console.log("Libro agregado correctamente.");
         }
     }
+
+    buscarPorGenero(genero) {
+    //- Recibe un string con el género
+    //- Retorna un arreglo con todos los libros de ese género
+    //- La búsqueda no debe ser sensible a mayúsculas (usa `.toLowerCase()`)
+
+    
+    }
 }
 
   
