@@ -13,7 +13,7 @@ class Libro {
   }
   info() {
     // Retorna: "[Título] de [Autor] ([Año]) - Disponible / Prestado"
-    
+
     return `${this.titulo} de ${this.autor} (${this.anio}) - 
     ${this.disponible ? "Disponible" : "Prestado" }`}
 }
@@ -31,17 +31,26 @@ class Biblioteca {
         //- Si ya existe un libro con el mismo título: muestra error con `console.error` y no lo agrega
         //- Si no existe: agrega el libro y confirma con `console.log`
 
-        const existe = this.libros.find( //Recorrer el arreglo de libros
-        (l) => l.titulo.toLowerCase() === libro.titulo.toLowerCase()
-        );
+        let existe = false;
 
-        if (existe) {
-        console.error("Libro ya existente.");
-        return;
+        for (let i = 0; i < this.libros.length; i++) {
+
+            if (
+            this.libros[i].titulo.toLowerCase() ===
+            libro.titulo.toLowerCase()
+            ) {
+            existe = true;
+            break; // salimos del ciclo porque ya lo encontramos
+            }
+
         }
 
-        this.libros.push(libro);
-        console.log(`Libro agregado: ${libro.titulo}`);
+        if (existe) {
+            console.log("El libro ya existe.");
+        } else {
+            this.libros.push(libro);
+            console.log("Libro agregado correctamente.");
+        }
     }
 }
 
